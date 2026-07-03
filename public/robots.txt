@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /internal/
+Disallow: /portal/
+Disallow: /api/
+Allow: /
+
+Sitemap: https://teratechcompany.tech/sitemap.xml

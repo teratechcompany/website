@@ -1,0 +1,78 @@
+@import './brand.css';
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-sans);
+  font-size:15px;
+  background:var(--black);
+  color:var(--white);
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,video,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none}
+ul,ol{list-style:none}
+
+/* Headings — always white, no orange */
+h1,h2,h3,h4,h5,h6{
+  font-weight:300;
+  line-height:1.08;
+  letter-spacing:-0.025em;
+  color:var(--text-heading);
+}
+:focus-visible{outline:2px solid var(--brand-blue);outline-offset:3px;border-radius:2px}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--black-border);border-radius:3px}
+
+/* Layout */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--s24)}
+.section{padding:var(--s96) 0}
+.section-sm{padding:var(--s64) 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* Grid */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s16)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s16)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s16)}
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* Eyebrow — cool blue-white, NOT orange */
+.eyebrow{
+  display:inline-block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-eyebrow);
+  margin-bottom:var(--s16);
+}
+
+/* Section title — white only */
+.section-title{
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:300;
+  letter-spacing:-0.03em;
+  color:var(--text-heading);
+  line-height:1.08;
+  margin-bottom:var(--s16);
+}
+
+/* Page hero title */
+.page-title{
+  font-size:clamp(32px,5vw,60px);
+  font-weight:300;
+  letter-spacing:-0.04em;
+  color:var(--text-heading);
+  line-height:1.02;
+  margin-bottom:var(--s20);
+}
+
+.divider{width:100%;height:1px;background:var(--white-faint);border:none;margin:0}
