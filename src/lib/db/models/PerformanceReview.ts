@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document, type Types } from 'mongoose'
+import { Schema, model, models, type Document, type Model, type Types } from 'mongoose'
 export interface IPerformanceReview extends Document {
   internId:    Types.ObjectId
   userId:      Types.ObjectId
@@ -24,4 +24,4 @@ const schema = new Schema<IPerformanceReview>({
   submitted:   { type:Boolean, default:false },
 }, { timestamps:true })
 schema.index({ internId:1, period:1 })
-export const PerformanceReview = models.PerformanceReview ?? model<IPerformanceReview>('PerformanceReview', schema)
+export const PerformanceReview = (models.PerformanceReview as Model<IPerformanceReview> | undefined) ?? (model<IPerformanceReview>('PerformanceReview', schema) as Model<IPerformanceReview>)

@@ -16,7 +16,7 @@
  */
 
 import 'dotenv/config'
-import mongoose    from 'mongoose'
+import mongoose, { type Model } from 'mongoose'
 import bcrypt      from 'bcryptjs'
 
 // ── Inline model (avoids import path issues when running outside Next.js) ──
@@ -49,7 +49,7 @@ async function seed() {
   await mongoose.connect(URI, { dbName: 'teratech' })
   console.log('✅  Connected')
 
-  const User = mongoose.models.User ?? mongoose.model('User', UserSchema)
+  const User = (mongoose.models.User as Model<any> | undefined) ?? (mongoose.model<any>('User', UserSchema) as Model<any>)
 
   const existing = await User.findOne({ email: EMAIL })
   if (existing) {

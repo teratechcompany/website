@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document, type Types } from 'mongoose'
+import { Schema, model, models, type Document, type Model, type Types } from 'mongoose'
 export interface IPayrollRecord extends Document {
   userId:     Types.ObjectId
   period:     string       // "2025-06"
@@ -24,4 +24,4 @@ const schema = new Schema<IPayrollRecord>({
   payslipUrl: String,
 }, { timestamps:true })
 schema.index({ userId:1, period:1 }, { unique:true })
-export const PayrollRecord = models.PayrollRecord ?? model<IPayrollRecord>('PayrollRecord', schema)
+export const PayrollRecord = (models.PayrollRecord as Model<IPayrollRecord> | undefined) ?? (model<IPayrollRecord>('PayrollRecord', schema) as Model<IPayrollRecord>)

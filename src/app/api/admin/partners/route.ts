@@ -13,7 +13,7 @@ const schema = z.object({
   sector:     safeString(100).optional().default(''),
   location:   safeString(200).optional().default(''),
   contact:    safeString(200).optional(),
-  placements: z.number().int().nonneg().optional().default(0),
+  placements: z.number().int().nonnegative().optional().default(0),
   since:      z.number().int().optional(),
 })
 

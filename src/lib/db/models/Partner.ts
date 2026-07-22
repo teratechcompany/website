@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document } from 'mongoose'
+import { Schema, model, models, type Document, type Model } from 'mongoose'
 export interface IPartner extends Document {
   name:        string
   logo?:       string
@@ -21,4 +21,4 @@ const schema = new Schema<IPartner>({
   active:     { type:Boolean, default:true, index:true },
   since:      Number,
 }, { timestamps:true })
-export const Partner = models.Partner ?? model<IPartner>('Partner', schema)
+export const Partner = (models.Partner as Model<IPartner> | undefined) ?? (model<IPartner>('Partner', schema) as Model<IPartner>)

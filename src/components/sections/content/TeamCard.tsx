@@ -1,3 +1,4 @@
+'use client';
 import type { TeamMemberData } from '@/constants/team'
 
 // Social icon SVGs — inline for zero external deps

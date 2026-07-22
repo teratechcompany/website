@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document, type Types } from 'mongoose'
+import { Schema, model, models, type Document, type Model, type Types } from 'mongoose'
 export interface IIntern extends Document {
   userId:       Types.ObjectId
   applicationId:Types.ObjectId
@@ -25,4 +25,4 @@ const schema = new Schema<IIntern>({
   attendance:    [{ date:Date, present:Boolean, note:String }],
   notes:         { type:String, default:'' },
 }, { timestamps:true })
-export const Intern = models.Intern ?? model<IIntern>('Intern', schema)
+export const Intern = (models.Intern as Model<IIntern> | undefined) ?? (model<IIntern>('Intern', schema) as Model<IIntern>)

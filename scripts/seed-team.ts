@@ -8,7 +8,7 @@
  */
 
 import 'dotenv/config'
-import mongoose from 'mongoose'
+import mongoose, { type Model } from 'mongoose'
 import bcrypt   from 'bcryptjs'
 
 const UserSchema = new mongoose.Schema({
@@ -39,7 +39,7 @@ async function seed() {
 
   console.log('\n🔌  Connecting…')
   await mongoose.connect(URI, { dbName: 'teratech' })
-  const User = mongoose.models.User ?? mongoose.model('User', UserSchema)
+  const User = (mongoose.models.User as Model<any> | undefined) ?? (mongoose.model<any>('User', UserSchema) as Model<any>)
 
   let created = 0; let skipped = 0
   for (const member of TEAM) {

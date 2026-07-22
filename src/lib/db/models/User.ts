@@ -23,4 +23,4 @@ const schema = new Schema<IUser>({
 
 schema.index({ email: 1 })
 
-export const User = (models.User as Model<IUser> | undefined) ?? model<IUser>('User', schema)
+export const User = (models.User as Model<IUser> | undefined) ?? (model<IUser>('User', schema) as Model<IUser>)

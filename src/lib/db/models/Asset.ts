@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document, type Types } from 'mongoose'
+import { Schema, model, models, type Document, type Model, type Types } from 'mongoose'
 export interface IAsset extends Document {
   name:       string
   type:       'laptop' | 'phone' | 'peripheral' | 'access-card' | 'other'
@@ -20,4 +20,4 @@ const schema = new Schema<IAsset>({
   notes:      { type:String, maxlength:500, default:'' },
 }, { timestamps:true })
 schema.index({ assignedTo:1 })
-export const Asset = models.Asset ?? model<IAsset>('Asset', schema)
+export const Asset = (models.Asset as Model<IAsset> | undefined) ?? (model<IAsset>('Asset', schema) as Model<IAsset>)

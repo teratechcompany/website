@@ -31,4 +31,4 @@ const schema = new Schema<IApplication>({
   submittedAt:  Date,
 }, { timestamps:true })
 
-export const Application = (models.Application as Model<IApplication> | undefined) ?? model<IApplication>('Application', schema)
+export const Application = (models.Application as Model<IApplication> | undefined) ?? (model<IApplication>('Application', schema) as Model<IApplication>)

@@ -1,4 +1,4 @@
-import { Schema, model, models, type Document, type Types } from 'mongoose'
+import { Schema, model, models, type Document, type Model, type Types } from 'mongoose'
 export interface ILeaveRequest extends Document {
   userId:    Types.ObjectId
   internId?: Types.ObjectId
@@ -23,4 +23,4 @@ const schema = new Schema<ILeaveRequest>({
   reviewedBy: { type:Schema.Types.ObjectId, ref:'User' },
   reviewNote: { type:String, maxlength:500 },
 }, { timestamps:true })
-export const LeaveRequest = models.LeaveRequest ?? model<ILeaveRequest>('LeaveRequest', schema)
+export const LeaveRequest = (models.LeaveRequest as Model<ILeaveRequest> | undefined) ?? (model<ILeaveRequest>('LeaveRequest', schema) as Model<ILeaveRequest>)

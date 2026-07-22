@@ -8,4 +8,4 @@ const schema = new Schema({
   ip:         { type:String, maxlength:45 },
 }, { timestamps:true })
 schema.index({ userId:1, createdAt:-1 }); schema.index({ resource:1 })
-export const AuditLog = (models.AuditLog as Model<unknown> | undefined) ?? model('AuditLog', schema)
+export const AuditLog = (models.AuditLog as Model<any> | undefined) ?? (model<any>('AuditLog', schema) as Model<any>)
