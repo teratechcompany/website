@@ -3,6 +3,7 @@ import { Providers } from '@/components/providers/Providers'
 import { APP } from '@/constants/config'
 import '@/styles/globals.css'
 import '@/styles/components.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   metadataBase:  new URL(APP.url),
