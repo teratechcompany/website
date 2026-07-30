@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { APP } from '@/constants/config'
 import { ROUTES } from '@/constants/routes'
-import Image from 'next/image'
 
 const COLS = {
   Programme: [
@@ -37,47 +37,42 @@ const COLS = {
 
 export function Footer() {
   return (
-    <footer style={{ background: '#060D15', borderTop: '1px solid var(--white-faint)', paddingTop: 'var(--s64)', paddingBottom: 'var(--s32)' }}>
+    <footer className="site-footer">
       <div className="container">
-
-        {/* Top grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 'var(--s40)', paddingBottom: 'var(--s48)', borderBottom: '1px solid var(--white-faint)' }}>
-
-          {/* Brand column */}
+        {/* Main Footer Grid */}
+        <div className="site-footer-grid">
+          {/* Brand & Address Column */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 'var(--s16)' }}>
-              {/* <span style={{ width: 24, height: 24, background: 'var(--brand-blue)', borderRadius: 'var(--radius-sharp)', display: 'inline-block', flexShrink: 0 }} aria-hidden /> */}
+            <div className="site-footer-brand-title">
               <Image
                 src="/assets/logo.png"
                 alt="Tera-Tech Ltd"
                 height={28}
                 width={28}
-                style={{ objectFit: 'contain' }}
+                className="site-brand-logo"
               />
-              <span style={{ fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px' }}>
-                Tera-Tech
-              </span>
+              <span>Tera-Tech</span>
             </div>
-            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--white-muted)', lineHeight: 1.7, maxWidth: 260, marginBottom: 'var(--s20)' }}>
+            <p className="site-footer-brand-desc">
               Systems innovation connecting Cameroonian tech talent to regional and global opportunities since {APP.founded}.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s8)' }}>
-              <a href={`mailto:${APP.email}`} style={{ fontSize: 12, color: 'var(--brand-blue)' }}>{APP.email}</a>
-              <a href={`tel:${APP.phone.replace(/\s/g,'')}`} style={{ fontSize: 12, color: 'var(--white-muted)' }}>{APP.phone}</a>
-              <p style={{ fontSize: 12, color: 'var(--white-subtle)' }}>{APP.address}</p>
+            <div className="site-footer-contact">
+              <a href={`mailto:${APP.email}`} className="site-footer-contact-email">
+                {APP.email}
+              </a>
+              <a href={`tel:${APP.phone.replace(/\s/g, '')}`} className="site-footer-contact-phone">
+                {APP.phone}
+              </a>
+              <p className="site-footer-contact-address">{APP.address}</p>
             </div>
           </div>
 
-          {/* Link columns */}
+          {/* Navigation Links Columns */}
           {Object.entries(COLS).map(([title, links]) => (
             <div key={title}>
-              <p style={{ fontSize: 'var(--text-xs)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--white-subtle)', marginBottom: 'var(--s16)' }}>
-                {title}
-              </p>
+              <p className="site-footer-col-title">{title}</p>
               {(links as readonly (readonly [string, string])[]).map(([label, href]) => (
-                <Link key={href} href={href} style={{ display: 'block', fontSize: 'var(--text-sm)', color: 'var(--white-muted)', marginBottom: 'var(--s10)', transition: 'color var(--duration-fast)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--white)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--white-muted)')}>
+                <Link key={href} href={href} className="site-footer-link">
                   {label}
                 </Link>
               ))}
@@ -85,19 +80,41 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 'var(--s24)', flexWrap: 'wrap', gap: 'var(--s12)' }}>
-          <p style={{ fontSize: 12, color: 'var(--white-subtle)' }}>
+        {/* Footer Bottom Bar */}
+        <div className="site-footer-bottom">
+          <p className="site-footer-copyright">
             © {new Date().getFullYear()} Tera-Tech Ltd. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: 'var(--s16)', alignItems: 'center' }}>
-            <a href={APP.socials.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--white-subtle)' }}>LinkedIn</a>
-            <a href={APP.socials.twitter}  target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--white-subtle)' }}>Twitter</a>
-            <a href={APP.socials.github}   target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--white-subtle)' }}>GitHub</a>
-            <Link href="#" style={{ fontSize: 12, color: 'var(--white-subtle)' }}>↑ Top</Link>
+          <div className="site-footer-socials">
+            <a
+              href={APP.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-footer-social-link"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={APP.socials.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-footer-social-link"
+            >
+              Twitter
+            </a>
+            <a
+              href={APP.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-footer-social-link"
+            >
+              GitHub
+            </a>
+            <Link href="#" className="site-footer-social-link">
+              ↑ Top
+            </Link>
           </div>
         </div>
-
       </div>
     </footer>
   )
