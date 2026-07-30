@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server'
 import dbConnect        from '@/lib/db/mongoose'
 import { BlogPost }     from '@/lib/db/models/BlogPost'
