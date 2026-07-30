@@ -1,11 +1,10 @@
 'use client'
-export const dynamic = 'force-dynamic';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams }     from 'next/navigation'
 import Link                    from 'next/link'
 import { ROUTES }              from '@/constants/routes'
 
-export default function VerifyPage() {
+function VerifyContent() {
   const sp     = useSearchParams()
   const [status, setStatus] = useState<'loading'|'success'|'error'>('loading')
 
@@ -16,7 +15,7 @@ export default function VerifyPage() {
       .then(r => setStatus(r.ok || r.redirected ? 'success' : 'error'))
       .catch(() => setStatus('error'))
   }, [sp])
-
+  const searchParams = useSearchParams();
   return (
     <div className="card" style={{ width: '100%', maxWidth: 400, padding: 'var(--s32)', textAlign: 'center' }}>
       {status === 'loading' && <><p style={{ fontSize: 32, marginBottom: 'var(--s16)' }}>⏳</p><p style={{ color: 'var(--white-muted)' }}>Verifying your email…</p></>}
@@ -38,4 +37,12 @@ export default function VerifyPage() {
       )}
     </div>
   )
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VerifyContent />
+    </Suspense>
+  );
 }

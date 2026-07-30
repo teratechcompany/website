@@ -1,6 +1,6 @@
 'use client'
 export const dynamic = 'force-dynamic';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useDebounce } from '@/hooks/useDebounce'
@@ -11,7 +11,7 @@ const TYPE_LABEL: Record<string, string> = { blog: 'Blog', event: 'Event', alumn
 const TYPE_PATH:  Record<string, string> = { blog: '/blog', event: '/events', alumni: '/alumni', career: '/careers' }
 const TYPE_BADGE: Record<string, string> = { blog: 'badge-blue', event: 'badge-green', alumni: 'badge-cyan', career: 'badge-orange' }
 
-export default function SearchPage() {
+function SearchContent() {
   const sp     = useSearchParams()
   const router = useRouter()
   const [q,       setQ]       = useState(sp.get('q') ?? '')
@@ -106,4 +106,12 @@ export default function SearchPage() {
       </div>
     </section>
   )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchContent />
+    </Suspense>
+  );
 }
