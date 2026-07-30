@@ -51,10 +51,10 @@ export function TeamCard({ member }: { member: TeamMemberData }) {
       <div style={{ marginBottom:'var(--s16)' }}>
         <div style={{ width:72, height:72, borderRadius:'50%', overflow:'hidden', background:'linear-gradient(135deg, var(--brand-blue), var(--brand-cyan))', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:600, color:'var(--white)', flexShrink:0, border:'2px solid var(--brand-blue-border)' }}>
           {/* Show initials — replace with <img> once real photos are added */}
-          <span aria-hidden>{initials(member.name)}</span>
-          {/* Uncomment when photos available:
+          {/* <span aria-hidden>{initials(member.name)}</span> */}
+          {/* Uncomment when photos available:*/}
           <img src={member.avatar} alt={member.name} style={{ width:'100%', height:'100%', objectFit:'cover' }}
-            onError={e => { (e.target as HTMLImageElement).style.display='none' }} /> */}
+            onError={e => { (e.target as HTMLImageElement).style.display='none' }} /> 
         </div>
       </div>
 

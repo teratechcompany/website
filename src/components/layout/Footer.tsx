@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { APP } from '@/constants/config'
 import { ROUTES } from '@/constants/routes'
+import Image from 'next/image'
 
 const COLS = {
   Programme: [
@@ -45,9 +46,16 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 'var(--s16)' }}>
-              <span style={{ width: 24, height: 24, background: 'var(--brand-blue)', borderRadius: 'var(--radius-sharp)', display: 'inline-block', flexShrink: 0 }} aria-hidden />
+              {/* <span style={{ width: 24, height: 24, background: 'var(--brand-blue)', borderRadius: 'var(--radius-sharp)', display: 'inline-block', flexShrink: 0 }} aria-hidden /> */}
+              <Image
+                src="/assets/logo.png"
+                alt="Tera-Tech Ltd"
+                height={28}
+                width={28}
+                style={{ objectFit: 'contain' }}
+              />
               <span style={{ fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px' }}>
-                TERA<span style={{ color: 'var(--brand-blue)' }}>-</span>TECH<span style={{ color: 'var(--brand-orange)' }}>.</span>
+                Tera-Tech
               </span>
             </div>
             <p style={{ fontSize: 'var(--text-sm)', color: 'var(--white-muted)', lineHeight: 1.7, maxWidth: 260, marginBottom: 'var(--s20)' }}>

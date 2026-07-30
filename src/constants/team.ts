@@ -30,7 +30,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Founder & Managing Director',
     role:   'Founder & CEO',
     bio:    'Visionary technologist and entrepreneur who founded Tera-Tech Ltd in 2018 with a mission to bridge the gap between academic learning and production-level engineering in Cameroon. Sir Tita Tera leads the company\'s strategy, partnerships, and long-term direction, driving the placement of over 120 engineers across 40+ regional and global partners.',
-    avatar: '/assets/team/tita-tera.jpg',
+    avatar: '/assets/team/tita-tera.png',
     type:   'staff',
     order:  1,
     socials: {
@@ -45,7 +45,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Chief Technology Officer & QA Lead',
     role:   'CTO & QA Lead',
     bio:    'Systems architect and quality assurance authority responsible for all technical standards at Tera-Tech. Engr. Nde Alban oversees the engineering stack, production deployments, code review pipelines, and ensures every project shipped meets the firm\'s quality bar before it reaches clients or end users.',
-    avatar: '/assets/team/nde-alban.jpg',
+    avatar: '/assets/team/nde-alban.png',
     type:   'staff',
     order:  2,
     socials: {
@@ -59,7 +59,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Backend Engineering Lead',
     role:   'Backend Lead',
     bio:    'Expert backend engineer specialising in API architecture, database design, and distributed systems. Engr. Foncho Afanwi leads the backend engineering team, mentors backend-track interns, and is responsible for the reliability, performance, and security of all server-side systems at Tera-Tech.',
-    avatar: '/assets/team/foncho-afanwi.jpg',
+    avatar: '/assets/team/foncho-afanwi.png',
     type:   'staff',
     order:  3,
     socials: {
@@ -73,7 +73,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Project Manager & Head of HR',
     role:   'Project Manager & HR',
     bio:    'Dual-role leader combining rigorous project delivery with people operations. Engr. Faye Rauda manages the internship programme lifecycle, coordinates sprint schedules, tracks deliverables across all active projects, and oversees onboarding, performance reviews, and wellbeing for the Tera-Tech team and intern cohorts.',
-    avatar: '/assets/team/faye-rauda.jpg',
+    avatar: '/assets/team/faye-rauda.png',
     type:   'staff',
     order:  4,
     socials: {
@@ -87,7 +87,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'UI/UX Design Lead',
     role:   'UI/UX Lead',
     bio:    'Design systems thinker and user experience strategist who defines the visual and interaction language across all Tera-Tech products. Mr. Fomonyuy Fomo leads the UI/UX speciality track, mentors design interns, and ensures that every product shipped delivers a best-in-class experience for its users.',
-    avatar: '/assets/team/fomonyuy-fomo.jpg',
+    avatar: '/assets/team/fomonyuy-fomo.png',
     type:   'staff',
     order:  5,
     socials: {
@@ -101,7 +101,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Community Manager',
     role:   'Community Manager',
     bio:    'The heartbeat of the Tera-Tech community. Ms. Stevie Ange builds and sustains the relationships between current interns, alumni, volunteers, and the broader tech ecosystem in Cameroon. She manages the WhatsApp community, coordinates community events, and champions the Tera-Tech culture of collaboration and continuous learning.',
-    avatar: '/assets/team/stevie-ange.jpg',
+    avatar: '/assets/team/stevie-ange.png',
     type:   'staff',
     order:  6,
     socials: {
@@ -116,7 +116,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Social Media Manager',
     role:   'Social Media Manager',
     bio:    'Digital storyteller and brand voice for Tera-Tech across all social platforms. Mr. Idrish Farash creates and manages content that showcases intern journeys, project launches, and company milestones, growing Tera-Tech\'s visibility and reputation across LinkedIn, Twitter/X, and Instagram.',
-    avatar: '/assets/team/idrish-farash.jpg',
+    avatar: '/assets/team/idrish-farash.png',
     type:   'staff',
     order:  7,
     socials: {
@@ -131,7 +131,7 @@ export const TEAM: TeamMemberData[] = [
     title:  'Office Manager',
     role:   'Office Manager',
     bio:    'Operations anchor who keeps Tera-Tech running smoothly behind the scenes. Ms. Abihbombi Brida manages day-to-day office logistics, coordinates schedules, handles administrative processes, and ensures that the workspace and operational systems support the team\'s productivity and focus.',
-    avatar: '/assets/team/abihbombi-brida.jpg',
+    avatar: '/assets/team/abihbombi-brida.png',
     type:   'staff',
     order:  8,
     socials: {

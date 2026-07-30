@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { ROUTES } from '@/constants/routes'
 import { APP } from '@/constants/config'
+import Image from 'next/image'
 
 const NAV = [
   { label: 'About',     href: ROUTES.ABOUT },
@@ -44,15 +45,21 @@ export function Navbar() {
           {/* Logo */}
           <Link href={ROUTES.HOME} aria-label={APP.name} style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             {/* Blue rectangle (geometric/angular — brand shape) */}
-            <span style={{
+            {/* <span style={{
               display: 'inline-block', width: 28, height: 28,
               background: 'var(--brand-blue)',
               borderRadius: 'var(--radius-sharp)',
               marginRight: 8, flexShrink: 0,
-            }} aria-hidden />
+            }} aria-hidden /> */}
+            <Image
+              src="/assets/logo.png"
+              alt="Tera-Tech Ltd"
+              height={28}
+              width={28}
+              style={{ marginRight: 5, objectFit: 'contain' }}
+            />
             <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.5px', color: 'var(--white)' }}>
-              TERA<span style={{ color: 'var(--brand-blue)' }}>-</span>TECH
-              <span style={{ color: 'var(--brand-orange)', borderRadius: 'var(--radius-round)', marginLeft: 1 }}>.</span>
+              Tera-Tech
             </span>
           </Link>
 
