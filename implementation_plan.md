@@ -90,11 +90,11 @@ Refactoring the landing page components to ensure the public-facing site remains
 ### Phase 4: The Intern Portal & Internal Admin Tools
 Refactoring the authenticated sections of the app (the portal and internal dashboards).
 
-- [ ] **`src/components/portal/`**
-  - [ ] `StatusTracker.tsx` ➡️ `StatusTracker.module.css`
-  - [ ] `OnboardingChecklist.tsx` ➡️ `OnboardingChecklist.module.css`
-  - [ ] `OfferCard.tsx` ➡️ `OfferCard.module.css`
-  - [ ] `FileUploader.tsx` ➡️ `FileUploader.module.css`
+- [x] **`src/components/portal/`**
+  - [x] `StatusTracker.tsx` ➡️ `StatusTracker.module.css`
+  - [x] `OnboardingChecklist.tsx` ➡️ `OnboardingChecklist.module.css`
+  - [x] `OfferCard.tsx` ➡️ `OfferCard.module.css`
+  - [x] `FileUploader.tsx` ➡️ `FileUploader.module.css`
 
 - [ ] **`src/components/admin/` & `internal/`**
   - [ ] `UserRoleManager.tsx` ➡️ `UserRoleManager.module.css`

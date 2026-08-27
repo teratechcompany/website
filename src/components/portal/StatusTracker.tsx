@@ -1,4 +1,5 @@
 import type { AppStatus } from '@/lib/db/models/Application'
+import styles from './StatusTracker.module.css'
 
 const STEPS: { key: AppStatus; label: string; sub: string }[] = [
   { key:'submitted', label:'Application submitted', sub:'Your application has been received.' },
@@ -12,11 +13,11 @@ const ORDER: AppStatus[] = ['submitted','screening','interview','offered','accep
 export function StatusTracker({ status }: { status: AppStatus }) {
   if (status === 'withdrawn' || status === 'rejected') {
     return (
-      <div className="card" style={{ textAlign:'center', padding:'var(--s40)' }}>
-        <p style={{ fontSize:'var(--text-lg)', color:'var(--white-muted)', marginBottom:'var(--s8)' }}>
+      <div className={`card ${styles.card}`}>
+        <p className={styles.title}>
           {status === 'withdrawn' ? 'Application withdrawn' : 'Application unsuccessful'}
         </p>
-        <p style={{ fontSize:'var(--text-sm)', color:'var(--white-subtle)' }}>
+        <p className={styles.subtitle}>
           {status === 'rejected' ? 'Thank you for applying. You may apply again in the next cycle.' : 'You have withdrawn this application.'}
         </p>
       </div>
@@ -37,10 +38,10 @@ export function StatusTracker({ status }: { status: AppStatus }) {
               {done ? '✓' : i + 1}
             </div>
             <div>
-              <p style={{ fontSize:'var(--text-sm)', fontWeight:600, color: done || current ? 'var(--white)' : 'var(--white-subtle)', marginBottom:2 }}>
+              <p className={`${styles.label} ${done || current ? styles.labelActive : styles.labelPending}`}>
                 {step.label}
               </p>
-              <p style={{ fontSize:12, color: done ? 'var(--white-muted)' : current ? 'var(--brand-orange-light)' : 'var(--white-subtle)' }}>
+              <p className={`${styles.subtext} ${done ? styles.subtextDone : current ? styles.subtextCurrent : styles.subtextPending}`}>
                 {current ? step.sub : done ? 'Completed' : 'Pending'}
               </p>
             </div>

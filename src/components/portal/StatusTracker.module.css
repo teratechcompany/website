@@ -1,0 +1,40 @@
+.card {
+  text-align: center;
+  padding: var(--s40);
+}
+
+.title {
+  font-size: var(--text-lg);
+  color: var(--white-muted);
+  margin-bottom: var(--s8);
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--white-subtle);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.labelActive {
+  color: var(--white);
+}
+.labelPending {
+  color: var(--white-subtle);
+}
+
+.subtext {
+  font-size: 12px;
+}
+.subtextDone {
+  color: var(--white-muted);
+}
+.subtextCurrent {
+  color: var(--brand-orange-light);
+}
+.subtextPending {
+  color: var(--white-subtle);
+}
