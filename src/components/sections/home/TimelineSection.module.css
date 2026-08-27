@@ -1,0 +1,59 @@
+.section {
+  padding: var(--s96) 0;
+  background: rgba(0,114,206,0.03);
+  border-top: 1px solid rgba(0,114,206,0.08);
+  border-bottom: 1px solid rgba(0,114,206,0.08);
+}
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s24);
+  margin-top: var(--s48);
+}
+.connector {
+  position: absolute;
+  top: 27px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: rgba(0,114,206,0.15);
+  z-index: 0;
+}
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.stepNumber {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sharp);
+  background: var(--brand-blue-faint);
+  border: 2px solid var(--brand-blue-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--s20);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--brand-blue);
+  transition: all var(--dur-base) var(--ease);
+}
+.stepTitle {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-bottom: var(--s6);
+}
+.stepSub {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  margin-bottom: var(--s6);
+  line-height: 1.5;
+}
+.stepTime {
+  font-size: 11px;
+  color: var(--brand-orange);
+  font-weight: 500;
+}

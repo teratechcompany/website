@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import styles from './NewsletterBanner.module.css'
+
 export function NewsletterBanner() {
   const [email,  setEmail]  = useState('')
   const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle')
@@ -10,16 +12,16 @@ export function NewsletterBanner() {
     if (res.ok) setEmail('')
   }
   return (
-    <section style={{ padding:'var(--s64) 0', background:'rgba(0,114,206,0.04)', borderTop:'1px solid rgba(0,114,206,0.1)', borderBottom:'1px solid rgba(0,114,206,0.1)' }}>
-      <div className="container" style={{ maxWidth:560, textAlign:'center' }}>
+    <section className={styles.section}>
+      <div className={`container ${styles.inner}`}>
         <p className="eyebrow">Stay informed</p>
-        <h2 style={{ fontSize:'var(--text-xl)', fontWeight:300, marginBottom:'var(--s8)', color:'var(--text-heading)' }}>Get updates from Tera-Tech</h2>
-        <p style={{ fontSize:'var(--text-sm)', color:'var(--white-muted)', marginBottom:'var(--s24)' }}>News, cohort announcements, and events — no spam.</p>
+        <h2 className={styles.title}>Get updates from Tera-Tech</h2>
+        <p className={styles.subtitle}>News, cohort announcements, and events — no spam.</p>
         {status === 'success' ? (
-          <p style={{ color:'var(--success)', fontSize:'var(--text-sm)' }}>✓ Subscribed! Welcome to the community.</p>
+          <p className={styles.successMsg}>✓ Subscribed! Welcome to the community.</p>
         ) : (
-          <form onSubmit={submit} style={{ display:'flex', gap:'var(--s8)', flexWrap:'wrap', justifyContent:'center' }}>
-            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className="input" style={{ flex:1, minWidth:220, maxWidth:320 }} placeholder="your@email.com" required aria-label="Email address" />
+          <form onSubmit={submit} className={styles.form}>
+            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className={`input ${styles.emailInput}`} placeholder="your@email.com" required aria-label="Email address" />
             <button type="submit" className="btn btn-blue" disabled={status==='loading'}>{status==='loading' ? '···' : 'Subscribe'}</button>
           </form>
         )}

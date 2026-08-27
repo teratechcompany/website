@@ -1,0 +1,54 @@
+.grid {
+  margin-top: var(--s40);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.quote {
+  font-size: 32px;
+  color: var(--brand-blue);
+  line-height: 1;
+  margin-bottom: var(--s12);
+  font-family: Georgia, serif;
+}
+.quoteText {
+  font-size: var(--text-sm);
+  color: var(--white-dim);
+  line-height: 1.75;
+  font-style: italic;
+  flex-grow: 1;
+  margin-bottom: var(--s24);
+}
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.authorName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--white);
+}
+.authorTrack {
+  font-size: 11px;
+  color: var(--white-muted);
+}
+.placementBadge {
+  margin-top: var(--s16);
+  display: inline-flex;
+  align-self: flex-start;
+}
