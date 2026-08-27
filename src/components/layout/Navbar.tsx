@@ -5,6 +5,7 @@ import { useSession, signOut } from 'next-auth/react'
 import { ROUTES } from '@/constants/routes'
 import { APP } from '@/constants/config'
 import Image from 'next/image'
+import styles from './Navbar.module.css'
 
 const NAV = [
   { label: 'About',     href: ROUTES.ABOUT },
@@ -31,48 +32,32 @@ export function Navbar() {
 
   return (
     <>
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        height: 'var(--nav-height)',
-        background: scrolled ? 'rgba(10,10,10,0.92)' : 'rgba(10,10,10,0.5)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: scrolled ? '1px solid var(--white-faint)' : '1px solid transparent',
-        transition: 'background 0.3s var(--ease), border-color 0.3s var(--ease)',
-      }}>
-        <div className="container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : styles.headerDefault}`}>
+        <div className={`container ${styles.headerInner}`}>
 
           {/* Logo */}
-          <Link href={ROUTES.HOME} aria-label={APP.name} style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            {/* Blue rectangle (geometric/angular — brand shape) */}
-            {/* <span style={{
-              display: 'inline-block', width: 28, height: 28,
-              background: 'var(--brand-blue)',
-              borderRadius: 'var(--radius-sharp)',
-              marginRight: 8, flexShrink: 0,
-            }} aria-hidden /> */}
+          <Link href={ROUTES.HOME} aria-label={APP.name} className={styles.logoLink}>
             <Image
               src="/assets/logo.png"
               alt="Tera-Tech Ltd"
               height={28}
               width={28}
-              style={{ marginRight: 5, objectFit: 'contain' }}
+              className={styles.logoImage}
             />
-            <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.5px', color: 'var(--white)' }}>
+            <span className={styles.logoText}>
               Tera-Tech
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Main navigation" style={{ display: 'flex', gap: 'var(--s24)', alignItems: 'center' }}
-            className="hide-mobile">
+          <nav aria-label="Main navigation" className={`${styles.desktopNav} ${styles.hideMobile}`}>
             {NAV.map(l => (
               <Link key={l.href} href={l.href} className="nav-link">{l.label}</Link>
             ))}
           </nav>
 
           {/* Auth CTAs */}
-          <div style={{ display: 'flex', gap: 'var(--s8)', alignItems: 'center' }} className="hide-mobile">
+          <div className={`${styles.authCtas} ${styles.hideMobile}`}>
             {session ? (
               <>
                 <Link href={ROUTES.PORTAL} className="btn btn-ghost btn-sm">Portal</Link>
@@ -89,10 +74,9 @@ export function Navbar() {
           {/* Burger */}
           <button
             onClick={() => setOpen(o => !o)}
-            className="show-mobile"
+            className={`${styles.showMobile} ${styles.burger}`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
-            style={{ padding: 'var(--s8)', color: 'var(--white)', fontSize: 20 }}
           >
             {open ? '✕' : '☰'}
           </button>
@@ -101,41 +85,25 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div style={{
-          position: 'fixed', top: 'var(--nav-height)', left: 0, right: 0, zIndex: 99,
-          background: 'rgba(10,10,10,0.98)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          padding: 'var(--s24)',
-          borderBottom: '1px solid var(--white-faint)',
-        }}>
+        <div className={styles.mobileMenu}>
           {NAV.map(l => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
-              style={{ display: 'block', padding: 'var(--s12) 0', fontSize: 'var(--text-md)', color: 'var(--white-dim)', borderBottom: '1px solid var(--white-faint)' }}>
+              className={styles.mobileNavLink}>
               {l.label}
             </Link>
           ))}
-          <div style={{ display: 'flex', gap: 'var(--s12)', marginTop: 'var(--s20)' }}>
+          <div className={styles.mobileCtas}>
             {session ? (
-              <Link href={ROUTES.PORTAL} className="btn btn-blue" style={{ flex: 1, justifyContent: 'center' }}>Portal</Link>
+              <Link href={ROUTES.PORTAL} className={`btn btn-blue ${styles.mobileCtaBtn}`}>Portal</Link>
             ) : (
               <>
-                <Link href={ROUTES.LOGIN}  className="btn btn-ghost" style={{ flex: 1, justifyContent: 'center' }}>Sign in</Link>
-                <Link href={ROUTES.APPLY}  className="btn btn-orange" style={{ flex: 1, justifyContent: 'center' }}>Apply</Link>
+                <Link href={ROUTES.LOGIN}  className={`btn btn-ghost ${styles.mobileCtaBtn}`}>Sign in</Link>
+                <Link href={ROUTES.APPLY}  className={`btn btn-orange ${styles.mobileCtaBtn}`}>Apply</Link>
               </>
             )}
           </div>
         </div>
       )}
-
-      <style>{`
-        .hide-mobile { display: flex }
-        .show-mobile { display: none }
-        @media (max-width: 900px) {
-          .hide-mobile { display: none }
-          .show-mobile { display: block }
-        }
-      `}</style>
     </>
   )
 }

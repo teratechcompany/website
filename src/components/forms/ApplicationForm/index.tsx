@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ROUTES }   from '@/constants/routes'
+import styles from './ApplicationForm.module.css'
 import { Step1Personal }   from './Step1Personal'
 import { Step2Track }      from './Step2Track'
 import { Step3Background } from './Step3Background'
@@ -45,20 +46,20 @@ export function ApplicationForm() {
   }
 
   return (
-    <div style={{ maxWidth:680, margin:'0 auto', padding:'0 var(--s24)' }}>
+    <div className={styles.container}>
       {/* Step bar */}
-      <div style={{ display:'flex', gap:4, marginBottom:'var(--s32)' }}>
+      <div className={styles.stepBar}>
         {STEPS.map((_,i) => (
-          <div key={i} style={{ height:3, flex:1, borderRadius:2, background: i+1 < step ? 'var(--brand-cyan)' : i+1 === step ? 'var(--brand-blue)' : 'var(--white-faint)', transition:'background 0.4s var(--ease)' }} />
+          <div key={i} className={`${styles.stepIndicator} ${i+1 < step ? styles.stepIndicatorPast : i+1 === step ? styles.stepIndicatorActive : styles.stepIndicatorFuture}`} />
         ))}
       </div>
 
       {/* Step label */}
-      <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'var(--s32)' }}>
-        <p style={{ fontSize:'var(--text-xs)', color:'var(--white-muted)', letterSpacing:'0.06em', textTransform:'uppercase' }}>
+      <div className={styles.stepLabelContainer}>
+        <p className={styles.stepLabel}>
           Step {step} of {STEPS.length} — {STEPS[step-1]}
         </p>
-        <p style={{ fontSize:'var(--text-xs)', color:'var(--white-subtle)' }}>
+        <p className={styles.stepProgress}>
           {Math.round(((step-1)/STEPS.length)*100)}% complete
         </p>
       </div>
