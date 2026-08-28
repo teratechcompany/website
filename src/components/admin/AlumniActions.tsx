@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import styles from './AlumniActions.module.css'
+
 export function AlumniActions({ id }: { id:string }) {
   const [saving, setSaving] = useState(false)
   const act = async (approved:boolean) => {
@@ -9,7 +11,7 @@ export function AlumniActions({ id }: { id:string }) {
     window.location.reload()
   }
   return (
-    <div style={{ display:'flex', gap:'var(--s8)', flexShrink:0 }}>
+    <div className={styles.container}>
       <button className="btn btn-sm btn-blue"  disabled={saving} onClick={()=>act(true)}>Approve</button>
       <button className="btn btn-sm btn-ghost" disabled={saving} onClick={()=>act(false)}>Reject</button>
     </div>
