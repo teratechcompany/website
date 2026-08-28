@@ -1,4 +1,6 @@
 import { APP } from '@/constants/config'
+import styles from './MetricsSection.module.css'
+
 const METRICS = [
   { value:APP.stats.interns,     label:'Interns placed',              color:'var(--brand-blue)' },
   { value:APP.stats.partners,    label:'Partner companies',            color:'var(--brand-cyan)' },
@@ -7,13 +9,13 @@ const METRICS = [
 ]
 export function MetricsSection() {
   return (
-    <section style={{ padding:'var(--s64) 0', background:'rgba(255,255,255,0.02)', borderTop:'1px solid var(--white-faint)', borderBottom:'1px solid var(--white-faint)' }}>
+    <section className={styles.section}>
       <div className="container">
         <div className="grid-4">
           {METRICS.map((m,i) => (
-            <div key={i} className="card" style={{ textAlign:'center', padding:'var(--s32) var(--s24)' }}>
-              <p style={{ fontSize:'clamp(36px,4vw,52px)', fontWeight:200, letterSpacing:'-0.04em', color:m.color, lineHeight:1, marginBottom:'var(--s8)' }}>{m.value}</p>
-              <p style={{ fontSize:'var(--text-sm)', color:'var(--white-muted)', lineHeight:1.4 }}>{m.label}</p>
+            <div key={i} className={`card ${styles.card}`}>
+              <p className={styles.value} style={{ color:m.color }}>{m.value}</p>
+              <p className={styles.label}>{m.label}</p>
             </div>
           ))}
         </div>

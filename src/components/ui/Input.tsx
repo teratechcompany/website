@@ -1,5 +1,6 @@
 import { forwardRef, type InputHTMLAttributes } from 'react'
 import clsx from 'clsx'
+import styles from './Input.module.css'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
@@ -18,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
         aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
         {...rest}
       />
-      {hint  && <span id={`${id}-hint`}  style={{ fontSize: '12px', color: 'var(--white-muted)', marginTop: '2px' }}>{hint}</span>}
+      {hint  && <span id={`${id}-hint`} className={styles.hint}>{hint}</span>}
       {error && <span id={`${id}-error`} role="alert" className="field-error">{error}</span>}
     </div>
   )

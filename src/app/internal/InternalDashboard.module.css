@@ -1,0 +1,67 @@
+.title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s16);
+  margin-bottom: var(--s48);
+}
+.kpiCard {
+  padding: var(--s24);
+}
+.kpiValue {
+  font-size: 40px;
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: var(--s8);
+}
+.kpiLabel {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+}
+.tableCard {
+  padding: 0;
+  overflow: hidden;
+}
+.tableHeader {
+  padding: var(--s20) var(--s24);
+  border-bottom: 1px solid var(--white-faint);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tableTitle {
+  font-size: var(--text-md);
+  font-weight: 400;
+}
+.tableLink {
+  font-size: var(--text-sm);
+  color: var(--brand-blue);
+}
+.trackCell {
+  text-transform: capitalize;
+}
+.statusBadge {
+  font-size: 11px;
+}
+.dateCell {
+  color: var(--white-subtle);
+  font-size: 12px;
+}
+.colorBlue {
+  color: var(--brand-blue);
+}
+.colorCyan {
+  color: var(--brand-cyan);
+}
+.colorOrange {
+  color: var(--brand-orange);
+}

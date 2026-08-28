@@ -1,0 +1,201 @@
+.title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s32);
+  align-items: start;
+}
+.cardPanel {
+  padding: var(--s32);
+}
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-bottom: var(--s20);
+}
+.fieldList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+.extraList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+}
+.extraItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--white-muted);
+  padding: var(--s6) var(--s10);
+  background: var(--black-elevated);
+  border-radius: var(--radius-sharp);
+}
+.extraActions {
+  display: flex;
+  gap: var(--s12);
+  align-items: center;
+}
+.removeBtn {
+  color: var(--danger);
+  font-size: 11px;
+}
+.addExtraRow {
+  display: flex;
+  gap: var(--s8);
+}
+.flex2 {
+  flex: 2;
+}
+.flex1 {
+  flex: 1;
+}
+.computeBtn {
+  margin-top: var(--s8);
+}
+.resultPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+.summaryCard {
+  padding: var(--s32);
+  border-color: var(--brand-blue-border);
+}
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s10);
+}
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--s12);
+  border-bottom: 1px solid var(--white-faint);
+}
+.summaryLabel {
+  color: var(--white-muted);
+  font-size: var(--text-sm);
+}
+.summaryValue {
+  color: var(--white);
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+.deductionRow {
+  display: flex;
+  justify-content: space-between;
+}
+.deductionLabel {
+  color: var(--white-muted);
+  font-size: 13px;
+}
+.deductionValue {
+  color: var(--danger);
+  font-size: 13px;
+}
+.netRow {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--s12);
+  border-top: 2px solid var(--brand-blue-border);
+  margin-top: var(--s6);
+}
+.netLabel {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--white);
+}
+.netValue {
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--brand-cyan);
+  letter-spacing: -0.02em;
+}
+.rateCard {
+  padding: var(--s20);
+}
+.rateRow {
+  display: flex;
+  justify-content: space-between;
+}
+.rateRowMb {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--s8);
+}
+.rateLabel {
+  font-size: 12px;
+  color: var(--white-muted);
+}
+.rateTotalDeduction {
+  font-size: 12px;
+  color: var(--danger);
+}
+.ratePercent {
+  font-size: 12px;
+  color: var(--brand-orange);
+}
+.barWrapper {
+  height: 4px;
+  background: var(--white-faint);
+  border-radius: 2px;
+  margin-top: var(--s12);
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--brand-blue);
+  transition: width 0.5s var(--ease);
+}
+.legendRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--s6);
+}
+.legendText {
+  font-size: 10px;
+  color: var(--white-subtle);
+}
+.saveHelp {
+  font-size: 11px;
+  color: var(--white-subtle);
+  text-align: center;
+}
+.emptyStateCard {
+  padding: var(--s48);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s12);
+  min-height: 300px;
+}
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  background: var(--brand-blue-faint);
+  border-radius: var(--radius-sharp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+.emptyText {
+  color: var(--white-muted);
+  font-size: var(--text-sm);
+}

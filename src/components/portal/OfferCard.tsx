@@ -2,6 +2,7 @@
 import { useState }  from 'react'
 import { TRACKS }    from '@/constants/tracks'
 import { APP }       from '@/constants/config'
+import styles from './OfferCard.module.css'
 
 export function OfferCard({ application: app }: { application: any }) {
   const [accepting, setAccepting] = useState(false)
@@ -24,17 +25,17 @@ export function OfferCard({ application: app }: { application: any }) {
   return (
     <div>
       {/* Offer header */}
-      <div style={{ padding: 'var(--s32)', background: 'var(--brand-blue-faint)', border: '1px solid var(--brand-blue-border)', borderRadius: 'var(--radius-soft)', marginBottom: 'var(--s16)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--s24)', flexWrap: 'wrap', gap: 'var(--s12)' }}>
+      <div className={styles.container}>
+        <div className={styles.header}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-eyebrow)', marginBottom: 'var(--s8)' }}>
+            <p className={styles.headerSub}>
               Internship Offer — Tera-Tech Ltd
             </p>
-            <h2 style={{ fontSize: 'var(--text-xl)', fontWeight: 300, color: 'var(--white)' }}>
+            <h2 className={styles.headerTitle}>
               {track?.label ?? app.track}
             </h2>
           </div>
-          <span className={`badge ${accepted ? 'badge-green' : 'badge-orange'}`} style={{ fontSize: 12, padding: '6px 14px' }}>
+          <span className={`badge ${accepted ? 'badge-green' : 'badge-orange'} ${styles.badge}`}>
             {accepted ? '✓ Accepted' : 'Offer pending'}
           </span>
         </div>
@@ -49,16 +50,16 @@ export function OfferCard({ application: app }: { application: any }) {
           ['Duration',     '3 months (renewable by mutual agreement)'],
           ['Start',        'As discussed at interview'],
         ].map(([label, val]) => val && (
-          <div key={label} style={{ display: 'flex', gap: 'var(--s16)', paddingBottom: 'var(--s10)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 'var(--s10)' }}>
-            <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--white-muted)', minWidth: 120, flexShrink: 0 }}>{label}</p>
-            <p style={{ fontSize: 12, color: 'var(--white-dim)' }}>{val}</p>
+          <div key={label} className={styles.row}>
+            <p className={styles.rowLabel}>{label}</p>
+            <p className={styles.rowValue}>{val}</p>
           </div>
         ))}
       </div>
 
       {/* Programme terms */}
-      <div className="card" style={{ marginBottom: 'var(--s24)' }}>
-        <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--white-muted)', marginBottom: 'var(--s16)' }}>
+      <div className={`card ${styles.termsCard}`}>
+        <p className={styles.termsHeader}>
           Programme terms
         </p>
         {[
@@ -68,36 +69,36 @@ export function OfferCard({ application: app }: { application: any }) {
           'Tera-Tech will actively facilitate placement introductions with partner companies upon successful completion.',
           'This offer is contingent on the satisfactory verification of information provided in your application.',
         ].map((t, i) => (
-          <div key={i} style={{ display: 'flex', gap: 'var(--s10)', marginBottom: 'var(--s10)' }}>
-            <span aria-hidden style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--brand-blue)', marginTop: 8, flexShrink: 0 }} />
-            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--white-muted)', lineHeight: 1.65 }}>{t}</p>
+          <div key={i} className={styles.termItem}>
+            <span aria-hidden className={styles.termDot} />
+            <p className={styles.termText}>{t}</p>
           </div>
         ))}
-        <p style={{ fontSize: 12, color: 'var(--white-subtle)', marginTop: 'var(--s16)' }}>
+        <p className={styles.termsFooter}>
           By accepting, you confirm you have read and agree to the{' '}
-          <a href="/legal/intern-code" style={{ color: 'var(--brand-blue)' }}>Intern Code of Conduct</a>
+          <a href="/legal/intern-code" className={styles.link}>Intern Code of Conduct</a>
           {' '}and{' '}
-          <a href="/legal/terms" style={{ color: 'var(--brand-blue)' }}>Terms of Service</a>.
+          <a href="/legal/terms" className={styles.link}>Terms of Service</a>.
         </p>
       </div>
 
       {/* Action */}
       {!accepted ? (
         <>
-          {error && <p role="alert" style={{ fontSize: 'var(--text-sm)', color: 'var(--danger)', marginBottom: 'var(--s16)' }}>{error}</p>}
-          <div style={{ display: 'flex', gap: 'var(--s12)' }}>
-            <button className="btn btn-orange" style={{ flex: 1, justifyContent: 'center' }} onClick={accept} disabled={accepting}>
+          {error && <p role="alert" className={styles.error}>{error}</p>}
+          <div className={styles.actions}>
+            <button className={`btn btn-orange ${styles.btn}`} onClick={accept} disabled={accepting}>
               {accepting ? '···' : 'Accept offer'}
             </button>
-            <a href={`mailto:${APP.email}?subject=Offer query — ${app.personalInfo?.name}`} className="btn btn-ghost" style={{ flex: 1, justifyContent: 'center' }}>
+            <a href={`mailto:${APP.email}?subject=Offer query — ${app.personalInfo?.name}`} className={`btn btn-ghost ${styles.btn}`}>
               Contact us with a question
             </a>
           </div>
         </>
       ) : (
-        <div className="card" style={{ textAlign: 'center', padding: 'var(--s32)', borderColor: 'rgba(34,197,94,0.2)', background: 'rgba(34,197,94,0.05)' }}>
-          <p style={{ fontSize: 'var(--text-lg)', fontWeight: 300, color: 'var(--success)', marginBottom: 'var(--s8)' }}>Welcome to Tera-Tech!</p>
-          <p style={{ fontSize: 'var(--text-sm)', color: 'var(--white-muted)' }}>Your onboarding coordinator will reach out within 2 business days with next steps.</p>
+        <div className={`card ${styles.successCard}`}>
+          <p className={styles.successTitle}>Welcome to Tera-Tech!</p>
+          <p className={styles.successSub}>Your onboarding coordinator will reach out within 2 business days with next steps.</p>
         </div>
       )}
     </div>

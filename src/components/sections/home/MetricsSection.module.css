@@ -1,0 +1,22 @@
+.section {
+  padding: var(--s64) 0;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--white-faint);
+  border-bottom: 1px solid var(--white-faint);
+}
+.card {
+  text-align: center;
+  padding: var(--s32) var(--s24);
+}
+.value {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: var(--s8);
+}
+.label {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  line-height: 1.4;
+}

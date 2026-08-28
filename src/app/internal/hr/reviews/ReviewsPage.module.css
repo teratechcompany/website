@@ -1,0 +1,32 @@
+.title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.tableCard {
+  padding: 0;
+  overflow: hidden;
+}
+.emptyState {
+  text-align: center;
+  color: var(--white-subtle);
+  padding: var(--s40);
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.score {
+  color: var(--brand-cyan);
+  font-weight: 600;
+}
+.statusBadge {
+  font-size: 10px;
+}
+.reviewer {
+  color: var(--white-muted);
+  font-size: 12px;
+}

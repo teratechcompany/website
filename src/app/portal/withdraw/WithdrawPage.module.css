@@ -1,0 +1,22 @@
+.container {
+  max-width: 480px;
+}
+.title {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: var(--s16);
+}
+.text {
+  color: var(--white-muted);
+  margin-bottom: var(--s32);
+  line-height: 1.65;
+}
+.error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+  margin-bottom: var(--s16);
+}
+.actions {
+  display: flex;
+  gap: var(--s12);
+}

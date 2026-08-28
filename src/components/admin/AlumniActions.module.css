@@ -1,0 +1,5 @@
+.container {
+  display: flex;
+  gap: var(--s8);
+  flex-shrink: 0;
+}

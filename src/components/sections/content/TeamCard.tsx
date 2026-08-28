@@ -1,5 +1,6 @@
 'use client';
 import type { TeamMemberData } from '@/constants/team'
+import styles from './TeamCard.module.css'
 
 // Social icon SVGs — inline for zero external deps
 const LinkedInIcon = () => (
@@ -43,37 +44,37 @@ export function TeamCard({ member }: { member: TeamMemberData }) {
   const socials = Object.entries(member.socials).filter(([,v]) => !!v) as [keyof typeof SOCIAL_CONFIG, string][]
 
   return (
-    <div className="card" style={{ display:'flex', flexDirection:'column', padding:'var(--s24)', transition:'border-color 0.25s, transform 0.25s', position:'relative', overflow:'hidden' }}>
+    <div className={`card ${styles.card}`}>
       {/* Blue top accent line */}
-      <div aria-hidden style={{ position:'absolute', top:0, left:0, right:0, height:2, background:'var(--brand-blue)', transform:'scaleX(0)', transformOrigin:'left', transition:'transform 0.3s var(--ease)' }} className="card-accent-line" />
+      <div aria-hidden className={styles.accentLine} />
 
       {/* Avatar */}
-      <div style={{ marginBottom:'var(--s16)' }}>
-        <div style={{ width:72, height:72, borderRadius:'50%', overflow:'hidden', background:'linear-gradient(135deg, var(--brand-blue), var(--brand-cyan))', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:600, color:'var(--white)', flexShrink:0, border:'2px solid var(--brand-blue-border)' }}>
+      <div className={styles.avatarWrapper}>
+        <div className={styles.avatar}>
           {/* Show initials — replace with <img> once real photos are added */}
           {/* <span aria-hidden>{initials(member.name)}</span> */}
           {/* Uncomment when photos available:*/}
-          <img src={member.avatar} alt={member.name} style={{ width:'100%', height:'100%', objectFit:'cover' }}
+          <img src={member.avatar} alt={member.name} className={styles.avatarImg}
             onError={e => { (e.target as HTMLImageElement).style.display='none' }} /> 
         </div>
       </div>
 
       {/* Name & role */}
-      <h3 style={{ fontSize:'var(--text-base)', fontWeight:600, color:'var(--white)', marginBottom:4, letterSpacing:'-0.01em' }}>
+      <h3 className={styles.name}>
         {member.name}
       </h3>
-      <p style={{ fontSize:'var(--text-sm)', color:'var(--brand-blue-light)', marginBottom:'var(--s12)', fontWeight:500 }}>
+      <p className={styles.role}>
         {member.role}
       </p>
 
       {/* Bio — truncated, expandable via CSS */}
-      <p style={{ fontSize:12, color:'var(--white-muted)', lineHeight:1.65, flexGrow:1, marginBottom:'var(--s16)', display:'-webkit-box', WebkitLineClamp:4, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
+      <p className={styles.bio}>
         {member.bio}
       </p>
 
       {/* Socials */}
       {socials.length > 0 && (
-        <div style={{ display:'flex', gap:'var(--s8)', flexWrap:'wrap' }}>
+        <div className={styles.socials}>
           {socials.map(([key, url]) => {
             const cfg = SOCIAL_CONFIG[key]
             if (!cfg) return null
@@ -81,9 +82,7 @@ export function TeamCard({ member }: { member: TeamMemberData }) {
             return (
               <a key={key} href={url} target="_blank" rel="noopener noreferrer"
                 aria-label={`${member.name} on ${label}`}
-                style={{ display:'flex', alignItems:'center', justifyContent:'center', width:28, height:28, borderRadius:'var(--radius-sharp)', background:'var(--white-faint)', color:'var(--white-muted)', border:'1px solid var(--white-faint)', transition:'background 0.2s, color 0.2s, border-color 0.2s' }}
-                onMouseEnter={e => { const el = e.currentTarget; el.style.background='var(--brand-blue-faint)'; el.style.color='var(--brand-blue-light)'; el.style.borderColor='var(--brand-blue-border)' }}
-                onMouseLeave={e => { const el = e.currentTarget; el.style.background='var(--white-faint)'; el.style.color='var(--white-muted)'; el.style.borderColor='var(--white-faint)' }}>
+                className={styles.socialLink}>
                 <Icon />
               </a>
             )

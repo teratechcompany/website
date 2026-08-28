@@ -1,0 +1,36 @@
+.container { max-width: 680px; margin: 0 auto; padding: 0 var(--s24); }
+.stepBar { display: flex; gap: 4px; margin-bottom: var(--s32); }
+.stepIndicator { height: 3px; flex: 1; border-radius: 2px; transition: background 0.4s var(--ease); }
+.stepIndicatorPast { background: var(--brand-cyan); }
+.stepIndicatorActive { background: var(--brand-blue); }
+.stepIndicatorFuture { background: var(--white-faint); }
+.stepLabelContainer { display: flex; justify-content: space-between; margin-bottom: var(--s32); }
+.stepLabel { font-size: var(--text-xs); color: var(--white-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.stepProgress { font-size: var(--text-xs); color: var(--white-subtle); }
+.stepContainer { display: flex; flex-direction: column; gap: var(--s20); }
+.stepTitle { font-size: var(--text-xl); font-weight: 300; margin-bottom: var(--s8); }
+.stepTitleDoc { font-size: var(--text-xl); font-weight: 300; margin-bottom: var(--s4); }
+.stepSubtitle { font-size: var(--text-sm); color: var(--white-muted); margin-bottom: var(--s32); }
+.stepSubtitleDoc { font-size: var(--text-sm); color: var(--white-muted); margin-bottom: var(--s12); }
+.stepActions { display: flex; justify-content: space-between; margin-top: var(--s8); }
+.stepActionsEnd { display: flex; justify-content: flex-end; margin-top: var(--s16); }
+.stepActionsReview { display: flex; justify-content: space-between; align-items: center; }
+.submitBtn { padding: 12px 32px; }
+.trackGrid { gap: var(--s12); margin-bottom: var(--s32); }
+.trackCard { border-radius: var(--radius-soft); padding: var(--s16); text-align: left; cursor: pointer; transition: all var(--dur-base) var(--ease); }
+.trackCardSelected { background: var(--brand-blue-faint); border: 1px solid var(--brand-blue); box-shadow: var(--shadow-blue); }
+.trackCardUnselected { background: var(--black-surface); border: 1px solid var(--white-faint); box-shadow: none; }
+.trackLabel { font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--s4); }
+.trackLabelSelected { color: var(--brand-blue-light); }
+.trackLabelUnselected { color: var(--white); }
+.trackTools { font-size: 12px; color: var(--white-muted); }
+.cardNotice { border-left: 3px solid var(--brand-blue); border-radius: 0; margin-top: var(--s8); }
+.noticeText { font-size: var(--text-sm); color: var(--white-muted); }
+.noticeStrong { color: var(--white); }
+.reviewCard { margin-bottom: var(--s24); }
+.reviewSectionLabel { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); margin-bottom: var(--s16); }
+.reviewValueLarge { font-size: var(--text-md); font-weight: 400; color: var(--white); }
+.reviewRow { display: flex; gap: var(--s16); padding: var(--s12) 0; border-bottom: 1px solid var(--white-faint); }
+.reviewRowLabel { font-size: 12px; font-weight: 600; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.06em; min-width: 140px; flex-shrink: 0; }
+.reviewRowValue { font-size: var(--text-sm); color: var(--white-dim); }
+.reviewError { font-size: var(--text-sm); color: var(--danger); padding: var(--s12); background: rgba(239, 68, 68, 0.08); border-radius: var(--radius-sharp); border: 1px solid rgba(239, 68, 68, 0.2); margin-bottom: var(--s20); }

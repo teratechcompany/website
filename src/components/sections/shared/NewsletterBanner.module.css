@@ -1,0 +1,36 @@
+.section {
+  padding: var(--s64) 0;
+  background: rgba(0,114,206,0.04);
+  border-top: 1px solid rgba(0,114,206,0.1);
+  border-bottom: 1px solid rgba(0,114,206,0.1);
+}
+.inner {
+  max-width: 560px;
+  text-align: center;
+}
+.title {
+  font-size: var(--text-xl);
+  font-weight: 300;
+  margin-bottom: var(--s8);
+  color: var(--text-heading);
+}
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  margin-bottom: var(--s24);
+}
+.successMsg {
+  color: var(--success);
+  font-size: var(--text-sm);
+}
+.form {
+  display: flex;
+  gap: var(--s8);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.emailInput {
+  flex: 1;
+  min-width: 220px;
+  max-width: 320px;
+}

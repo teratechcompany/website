@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/Button'
 import { Input }  from '@/components/ui/Input'
 import type { FormData } from './index'
+import styles from './ApplicationForm.module.css'
 
 interface Props { data:FormData; onChange:(p:Partial<FormData>)=>void; onNext:()=>void; onBack:()=>void }
 
@@ -19,13 +20,13 @@ export function Step3Background({ data, onChange, onNext, onBack }: Props) {
   const valid = b.education && b.motivation && b.availability
 
   return (
-    <div style={{ display:'flex', flexDirection:'column', gap:'var(--s20)' }}>
-      <h2 style={{ fontSize:'var(--text-xl)', fontWeight:300, marginBottom:'var(--s8)' }}>Your background</h2>
+    <div className={styles.stepContainer}>
+      <h2 className={styles.stepTitle}>Your background</h2>
       <Textarea label="Education" id="education" value={b.education} onChange={v=>update('education',v)} placeholder="Tell us about your educational background, current studies, or relevant qualifications." />
       <Textarea label="Experience" id="experience" value={b.experience} onChange={v=>update('experience',v)} placeholder="Describe relevant projects, work experience, or self-study. Include links if available." maxLen={2000} />
       <Textarea label="Why Tera-Tech?" id="motivation" value={b.motivation} onChange={v=>update('motivation',v)} placeholder="Why do you want to join Tera-Tech? What do you hope to build or learn?" maxLen={3000} />
       <Input id="availability" label="When can you start?" value={b.availability} onChange={e=>update('availability',e.target.value)} placeholder="e.g. Immediately, September 2025, After exams in June" />
-      <div style={{ display:'flex', justifyContent:'space-between', marginTop:'var(--s8)' }}>
+      <div className={styles.stepActions}>
         <Button variant="ghost" onClick={onBack}>← Back</Button>
         <Button variant="blue"  disabled={!valid} onClick={onNext}>Continue →</Button>
       </div>

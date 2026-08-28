@@ -1,0 +1,78 @@
+.title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.kanbanGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--s12);
+  overflow-x: auto;
+  padding-bottom: var(--s16);
+}
+.colHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s10) var(--s12);
+  margin-bottom: var(--s12);
+  background: var(--black-surface);
+  border-radius: var(--radius-sharp);
+  border: 1px solid var(--white-faint);
+}
+.colTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.colCount {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--white-faint);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+.appLink {
+  text-decoration: none;
+}
+.appCard {
+  background: var(--black-elevated);
+  border: 1px solid var(--white-faint);
+  border-radius: var(--radius-sharp);
+  padding: var(--s12);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.appCard:hover {
+  border-color: var(--brand-blue-border);
+  transform: translateY(-1px);
+}
+.appName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.appTrack {
+  font-size: 11px;
+  color: var(--white-muted);
+  text-transform: capitalize;
+  margin-bottom: 4px;
+}
+.appDate {
+  font-size: 10px;
+  color: var(--white-subtle);
+}

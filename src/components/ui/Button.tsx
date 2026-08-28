@@ -1,5 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
+import styles from './Button.module.css'
 
 type Variant = 'blue' | 'orange' | 'ghost' | 'ghost-orange' | 'danger'
 type Size    = 'sm' | 'md' | 'lg'
@@ -32,7 +33,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
       className={clsx(variantMap[variant], sizeMap[size], className)}
       {...rest}
     >
-      {loading ? <span aria-hidden style={{ letterSpacing: '0.1em' }}>···</span> : children}
+      {loading ? <span aria-hidden className={styles.loadingSpinner}>···</span> : children}
     </button>
   )
 )

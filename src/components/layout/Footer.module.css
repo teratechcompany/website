@@ -1,0 +1,90 @@
+.footer {
+  background: #060D15;
+  border-top: 1px solid var(--white-faint);
+  padding-top: var(--s64);
+  padding-bottom: var(--s32);
+}
+.topGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--s40);
+  padding-bottom: var(--s48);
+  border-bottom: 1px solid var(--white-faint);
+}
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--s16);
+}
+.logoImage {
+  object-fit: contain;
+}
+.brandName {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.3px;
+}
+.brandDescription {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  line-height: 1.7;
+  max-width: 260px;
+  margin-bottom: var(--s20);
+}
+.contactColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+.emailLink {
+  font-size: 12px;
+  color: var(--brand-blue);
+}
+.phoneLink {
+  font-size: 12px;
+  color: var(--white-muted);
+}
+.addressText {
+  font-size: 12px;
+  color: var(--white-subtle);
+}
+.columnTitle {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white-subtle);
+  margin-bottom: var(--s16);
+}
+.columnLink {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  margin-bottom: var(--s10);
+  transition: color var(--duration-fast);
+}
+.columnLink:hover {
+  color: var(--white);
+}
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--s24);
+  flex-wrap: wrap;
+  gap: var(--s12);
+}
+.copyright {
+  font-size: 12px;
+  color: var(--white-subtle);
+}
+.socialLinks {
+  display: flex;
+  gap: var(--s16);
+  align-items: center;
+}
+.socialLink {
+  font-size: 12px;
+  color: var(--white-subtle);
+}

@@ -4,6 +4,7 @@ import dbConnect          from '@/lib/db/mongoose'
 import { Application }   from '@/lib/db/models/Application'
 import { Intern }         from '@/lib/db/models/Intern'
 import { LeaveRequest }   from '@/lib/db/models/LeaveRequest'
+import styles from './InternalDashboard.module.css'
 
 export default async function InternalDashboard() {
   await requireRole(ROLES.STAFF, ROLES.HR_ADMIN, ROLES.ADMIN)
@@ -20,31 +21,31 @@ export default async function InternalDashboard() {
     .select('personalInfo.name track status createdAt').lean()
 
   const KPIs = [
-    { label:'Open Applications', value:openApps,     color:'var(--brand-blue)' },
-    { label:'Active Interns',    value:activeInterns, color:'var(--brand-cyan)' },
-    { label:'Pending Leave',     value:pendingLeave,  color:'var(--brand-orange)' },
+    { label:'Open Applications', value:openApps,     colorClass:styles.colorBlue },
+    { label:'Active Interns',    value:activeInterns, colorClass:styles.colorCyan },
+    { label:'Pending Leave',     value:pendingLeave,  colorClass:styles.colorOrange },
   ]
 
   return (
     <div>
-      <h1 style={{ fontSize:28, fontWeight:300, marginBottom:'var(--s8)' }}>Internal Dashboard</h1>
-      <p style={{ color:'var(--white-muted)', marginBottom:'var(--s40)' }}>Operations overview</p>
+      <h1 className={styles.title}>Internal Dashboard</h1>
+      <p className={styles.subtitle}>Operations overview</p>
 
       {/* KPI strip */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'var(--s16)', marginBottom:'var(--s48)' }}>
+      <div className={styles.kpiGrid}>
         {KPIs.map(k => (
-          <div key={k.label} className="card" style={{ padding:'var(--s24)' }}>
-            <p style={{ fontSize:40, fontWeight:200, color:k.color, letterSpacing:'-0.04em', lineHeight:1, marginBottom:'var(--s8)' }}>{k.value}</p>
-            <p style={{ fontSize:'var(--text-sm)', color:'var(--white-muted)' }}>{k.label}</p>
+          <div key={k.label} className={`card ${styles.kpiCard}`}>
+            <p className={`${styles.kpiValue} ${k.colorClass}`}>{k.value}</p>
+            <p className={styles.kpiLabel}>{k.label}</p>
           </div>
         ))}
       </div>
 
       {/* Recent applications */}
-      <div className="card" style={{ padding:0, overflow:'hidden' }}>
-        <div style={{ padding:'var(--s20) var(--s24)', borderBottom:'1px solid var(--white-faint)', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-          <h2 style={{ fontSize:'var(--text-md)', fontWeight:400 }}>Recent applications</h2>
-          <a href="/internal/ats" style={{ fontSize:'var(--text-sm)', color:'var(--brand-blue)' }}>View pipeline →</a>
+      <div className={`card ${styles.tableCard}`}>
+        <div className={styles.tableHeader}>
+          <h2 className={styles.tableTitle}>Recent applications</h2>
+          <a href="/internal/ats" className={styles.tableLink}>View pipeline →</a>
         </div>
         <table className="data-table">
           <thead><tr><th>Applicant</th><th>Track</th><th>Status</th><th>Received</th></tr></thead>
@@ -52,9 +53,9 @@ export default async function InternalDashboard() {
             {(recentApps as any[]).map(a => (
               <tr key={a._id}>
                 <td>{a.personalInfo?.name ?? '—'}</td>
-                <td style={{ textTransform:'capitalize' }}>{a.track}</td>
-                <td><span className={`badge ${a.status==='submitted'?'badge-orange':a.status==='screening'?'badge-blue':'badge-cyan'}`} style={{ fontSize:11 }}>{a.status}</span></td>
-                <td style={{ color:'var(--white-subtle)', fontSize:12 }}>{new Date(a.createdAt).toLocaleDateString('en-CM',{ dateStyle:'short' })}</td>
+                <td className={styles.trackCell}>{a.track}</td>
+                <td><span className={`badge ${a.status==='submitted'?'badge-orange':a.status==='screening'?'badge-blue':'badge-cyan'} ${styles.statusBadge}`}>{a.status}</span></td>
+                <td className={styles.dateCell}>{new Date(a.createdAt).toLocaleDateString('en-CM',{ dateStyle:'short' })}</td>
               </tr>
             ))}
           </tbody>

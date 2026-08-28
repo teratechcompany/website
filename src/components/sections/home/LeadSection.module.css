@@ -1,0 +1,51 @@
+.section {
+  padding: var(--s96) 0;
+  background: rgba(0,114,206,0.04);
+  border-top: 1px solid rgba(0,114,206,0.10);
+}
+.inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.subtitle {
+  font-size: var(--text-md);
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.applyBtn {
+  margin-bottom: var(--s32);
+  display: inline-flex;
+}
+.dividerRow {
+  display: flex;
+  align-items: center;
+  gap: var(--s16);
+  margin-bottom: var(--s32);
+}
+.dividerText {
+  font-size: 11px;
+  color: var(--white-subtle);
+  white-space: nowrap;
+}
+.form {
+  display: flex;
+  gap: var(--s8);
+  max-width: 480px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.emailInput {
+  flex: 1;
+  min-width: 220px;
+}
+.message {
+  font-size: var(--text-sm);
+  margin-top: var(--s12);
+}
+.messageError {
+  color: var(--danger);
+}
+.messageSuccess {
+  color: var(--success);
+}

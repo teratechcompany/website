@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { ROLES, ROLE_LABELS } from '@/constants/roles'
 import type { Role } from '@/constants/roles'
+import styles from './UserRoleManager.module.css'
 
 export function UserRoleManager({ userId, currentRole }: { userId:string; currentRole:Role }) {
   const [role, setRole]       = useState<Role>(currentRole)
@@ -16,7 +17,7 @@ export function UserRoleManager({ userId, currentRole }: { userId:string; curren
 
   return (
     <select value={role} onChange={e=>save(e.target.value as Role)} disabled={saving}
-      style={{ background:'var(--black-elevated)', border:'1px solid var(--white-faint)', borderRadius:'var(--radius-sharp)', color:'var(--white)', padding:'4px 8px', fontSize:12, cursor:'pointer' }}>
+      className={styles.select}>
       {Object.values(ROLES).map(r => <option key={r} value={r}>{ROLE_LABELS[r]}</option>)}
     </select>
   )

@@ -3,6 +3,7 @@ import { useState }             from 'react'
 import { computePayroll }       from '@/lib/payroll/compute'
 import type { PayrollResult }   from '@/lib/payroll/compute'
 import { formatCurrency }       from '@/lib/utils/format'
+import styles from './PayrollPage.module.css'
 
 export default function PayrollPage() {
   const [gross,    setGross]    = useState('')
@@ -44,19 +45,19 @@ export default function PayrollPage() {
 
   return (
     <div>
-      <h1 style={{ fontSize: 28, fontWeight: 300, marginBottom: 'var(--s8)' }}>Payroll Manager</h1>
-      <p style={{ color: 'var(--white-muted)', marginBottom: 'var(--s40)' }}>
+      <h1 className={styles.title}>Payroll Manager</h1>
+      <p className={styles.subtitle}>
         Cameroon IRPP · CNPS · CSS · CAC computation
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s32)', alignItems: 'start' }}>
+      <div className={styles.layoutGrid}>
 
         {/* Input panel */}
-        <div className="card" style={{ padding: 'var(--s32)' }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--white-muted)', marginBottom: 'var(--s20)' }}>
+        <div className={`card ${styles.cardPanel}`}>
+          <p className={styles.sectionTitle}>
             Payroll inputs
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s16)' }}>
+          <div className={styles.fieldList}>
             <div className="field">
               <label className="label" htmlFor="py-name">Employee name</label>
               <input id="py-name" className="input" value={name} onChange={e => setName(e.target.value)} placeholder="Full name" />
@@ -76,26 +77,26 @@ export default function PayrollPage() {
 
             {/* Extra deductions */}
             {extras.length > 0 && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s6)' }}>
+              <div className={styles.extraList}>
                 {extras.map((e, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'var(--white-muted)', padding: 'var(--s6) var(--s10)', background: 'var(--black-elevated)', borderRadius: 'var(--radius-sharp)' }}>
+                  <div key={i} className={styles.extraItem}>
                     <span>{e.label}</span>
-                    <div style={{ display: 'flex', gap: 'var(--s12)', alignItems: 'center' }}>
+                    <div className={styles.extraActions}>
                       <span>{fmt(e.amount)}</span>
-                      <button onClick={() => setExtras(ex => ex.filter((_, j) => j !== i))} style={{ color: 'var(--danger)', fontSize: 11 }}>✕</button>
+                      <button onClick={() => setExtras(ex => ex.filter((_, j) => j !== i))} className={styles.removeBtn}>✕</button>
                     </div>
                   </div>
                 ))}
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: 'var(--s8)' }}>
-              <input className="input" value={extraLbl} onChange={e => setExtraLbl(e.target.value)} placeholder="Deduction label" style={{ flex: 2 }} />
-              <input className="input" type="number" value={extraAmt} onChange={e => setExtraAmt(e.target.value)} placeholder="Amount" style={{ flex: 1 }} min="0" />
+            <div className={styles.addExtraRow}>
+              <input className={`input ${styles.flex2}`} value={extraLbl} onChange={e => setExtraLbl(e.target.value)} placeholder="Deduction label" />
+              <input className={`input ${styles.flex1}`} type="number" value={extraAmt} onChange={e => setExtraAmt(e.target.value)} placeholder="Amount" min="0" />
               <button className="btn btn-ghost btn-sm" onClick={addExtra}>Add</button>
             </div>
 
-            <button className="btn btn-blue" onClick={compute} style={{ marginTop: 'var(--s8)' }}>
+            <button className={`btn btn-blue ${styles.computeBtn}`} onClick={compute}>
               Compute payroll
             </button>
           </div>
@@ -103,49 +104,49 @@ export default function PayrollPage() {
 
         {/* Result panel */}
         {result ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s16)' }}>
+          <div className={styles.resultPanel}>
             {/* Summary card */}
-            <div className="card" style={{ padding: 'var(--s32)', borderColor: 'var(--brand-blue-border)' }}>
-              <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--white-muted)', marginBottom: 'var(--s20)' }}>
+            <div className={`card ${styles.summaryCard}`}>
+              <p className={styles.sectionTitle}>
                 {name || 'Employee'} · {period}
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s10)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 'var(--s12)', borderBottom: '1px solid var(--white-faint)' }}>
-                  <span style={{ color: 'var(--white-muted)', fontSize: 'var(--text-sm)' }}>Gross salary</span>
-                  <span style={{ color: 'var(--white)', fontWeight: 500, fontSize: 'var(--text-sm)' }}>{fmt(result.gross)}</span>
+              <div className={styles.summaryList}>
+                <div className={styles.summaryRow}>
+                  <span className={styles.summaryLabel}>Gross salary</span>
+                  <span className={styles.summaryValue}>{fmt(result.gross)}</span>
                 </div>
                 {result.deductions.map(d => (
-                  <div key={d.label} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--white-muted)', fontSize: 13 }}>- {d.label}</span>
-                    <span style={{ color: 'var(--danger)', fontSize: 13 }}>({fmt(d.amount)})</span>
+                  <div key={d.label} className={styles.deductionRow}>
+                    <span className={styles.deductionLabel}>- {d.label}</span>
+                    <span className={styles.deductionValue}>({fmt(d.amount)})</span>
                   </div>
                 ))}
-                <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 'var(--s12)', borderTop: '2px solid var(--brand-blue-border)', marginTop: 'var(--s6)' }}>
-                  <span style={{ fontSize: 'var(--text-md)', fontWeight: 600, color: 'var(--white)' }}>Net salary</span>
-                  <span style={{ fontSize: 'var(--text-xl)', fontWeight: 300, color: 'var(--brand-cyan)', letterSpacing: '-0.02em' }}>{fmt(result.net)}</span>
+                <div className={styles.netRow}>
+                  <span className={styles.netLabel}>Net salary</span>
+                  <span className={styles.netValue}>{fmt(result.net)}</span>
                 </div>
               </div>
             </div>
 
             {/* Effective rate */}
-            <div className="card" style={{ padding: 'var(--s20)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--s8)' }}>
-                <span style={{ fontSize: 12, color: 'var(--white-muted)' }}>Total deductions</span>
-                <span style={{ fontSize: 12, color: 'var(--danger)' }}>{fmt(result.gross - result.net)}</span>
+            <div className={`card ${styles.rateCard}`}>
+              <div className={styles.rateRowMb}>
+                <span className={styles.rateLabel}>Total deductions</span>
+                <span className={styles.rateTotalDeduction}>{fmt(result.gross - result.net)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: 12, color: 'var(--white-muted)' }}>Effective tax rate</span>
-                <span style={{ fontSize: 12, color: 'var(--brand-orange)' }}>
+              <div className={styles.rateRow}>
+                <span className={styles.rateLabel}>Effective tax rate</span>
+                <span className={styles.ratePercent}>
                   {result.gross > 0 ? ((result.gross - result.net) / result.gross * 100).toFixed(1) : 0}%
                 </span>
               </div>
               {/* Visual bar */}
-              <div style={{ height: 4, background: 'var(--white-faint)', borderRadius: 2, marginTop: 'var(--s12)', overflow: 'hidden' }}>
-                <div style={{ height: '100%', borderRadius: 2, background: 'var(--brand-blue)', width: `${result.gross > 0 ? (result.net / result.gross * 100) : 0}%`, transition: 'width 0.5s var(--ease)' }} />
+              <div className={styles.barWrapper}>
+                <div className={styles.barFill} style={{ width: `${result.gross > 0 ? (result.net / result.gross * 100) : 0}%` } as React.CSSProperties} />
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 'var(--s6)' }}>
-                <span style={{ fontSize: 10, color: 'var(--white-subtle)' }}>Net ({result.gross > 0 ? (result.net / result.gross * 100).toFixed(0) : 0}%)</span>
-                <span style={{ fontSize: 10, color: 'var(--white-subtle)' }}>Deducted ({result.gross > 0 ? ((result.gross - result.net) / result.gross * 100).toFixed(0) : 0}%)</span>
+              <div className={styles.legendRow}>
+                <span className={styles.legendText}>Net ({result.gross > 0 ? (result.net / result.gross * 100).toFixed(0) : 0}%)</span>
+                <span className={styles.legendText}>Deducted ({result.gross > 0 ? ((result.gross - result.net) / result.gross * 100).toFixed(0) : 0}%)</span>
               </div>
             </div>
 
@@ -153,14 +154,14 @@ export default function PayrollPage() {
             <button className="btn btn-orange" onClick={save} disabled={saving || saved || !name}>
               {saved ? '✓ Saved to records' : saving ? '···' : 'Save payroll record'}
             </button>
-            <p style={{ fontSize: 11, color: 'var(--white-subtle)', textAlign: 'center' }}>
+            <p className={styles.saveHelp}>
               Saving will create a payroll record in the database for {name || 'this employee'} for {period}.
             </p>
           </div>
         ) : (
-          <div className="card" style={{ padding: 'var(--s48)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'var(--s12)', minHeight: 300 }}>
-            <div style={{ width: 48, height: 48, background: 'var(--brand-blue-faint)', borderRadius: 'var(--radius-sharp)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>₣</div>
-            <p style={{ color: 'var(--white-muted)', fontSize: 'var(--text-sm)' }}>Enter gross salary and click Compute to see the full payroll breakdown.</p>
+          <div className={`card ${styles.emptyStateCard}`}>
+            <div className={styles.iconCircle}>₣</div>
+            <p className={styles.emptyText}>Enter gross salary and click Compute to see the full payroll breakdown.</p>
           </div>
         )}
       </div>

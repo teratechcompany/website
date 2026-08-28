@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Input }    from '@/components/ui/Input'
 import { Button }   from '@/components/ui/Button'
+import styles from './AddPartnerForm.module.css'
 
 export function AddPartnerForm() {
   const [form, setForm] = useState({ name: '', sector: '', location: '', website: '', logo: '', placements: '0' })
@@ -22,16 +23,16 @@ export function AddPartnerForm() {
   }
 
   return (
-    <div className="card" style={{ padding: 'var(--s24)' }}>
-      <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--white-muted)', marginBottom: 'var(--s20)' }}>Add new partner</p>
-      <form onSubmit={save} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s12)' }}>
+    <div className={`card ${styles.card}`}>
+      <p className={styles.title}>Add new partner</p>
+      <form onSubmit={save} className={styles.form}>
         <Input id="p-name"       label="Company name"    value={form.name}       onChange={update('name')}       required placeholder="Acme Ltd" />
         <Input id="p-sector"     label="Sector"           value={form.sector}     onChange={update('sector')}     placeholder="Fintech, EdTech…" />
         <Input id="p-location"   label="Location"         value={form.location}   onChange={update('location')}   placeholder="Douala, Cameroon" />
         <Input id="p-website"    label="Website URL"      value={form.website}    onChange={update('website')}    type="url" placeholder="https://…" />
         <Input id="p-logo"       label="Logo URL"         value={form.logo}       onChange={update('logo')}       type="url" placeholder="https://…" />
         <Input id="p-placements" label="Placements to date" value={form.placements} onChange={update('placements')} type="number" min="0" />
-        {error && <p role="alert" style={{ fontSize: 12, color: 'var(--danger)' }}>{error}</p>}
+        {error && <p role="alert" className={styles.error}>{error}</p>}
         <Button type="submit" variant="blue" loading={saving}>{done ? '✓ Partner added' : 'Add partner'}</Button>
       </form>
     </div>

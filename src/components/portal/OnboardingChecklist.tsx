@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import styles from './OnboardingChecklist.module.css'
 
 const STEPS = [
   { id: 'offer',    category: 'Before you start', label: 'Accept your offer letter', desc: 'Go to the Offer tab and accept your internship offer.' },
@@ -30,33 +31,33 @@ export function OnboardingChecklist() {
   return (
     <div>
       {/* Progress */}
-      <div style={{ marginBottom: 'var(--s32)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--s8)' }}>
-          <p style={{ fontSize: 'var(--text-sm)', color: 'var(--white-muted)' }}>{complete} of {total} complete</p>
+      <div className={styles.progressContainer}>
+        <div className={styles.progressHeader}>
+          <p className={styles.progressText}>{complete} of {total} complete</p>
           {complete === total && <span className="badge badge-green">All done ✓</span>}
         </div>
-        <div style={{ height: 4, background: 'var(--white-faint)', borderRadius: 2, overflow: 'hidden' }}>
-          <div style={{ height: '100%', background: 'var(--brand-blue)', borderRadius: 2, width: `${(complete / total) * 100}%`, transition: 'width 0.4s var(--ease)' }} />
+        <div className={styles.progressBarBg}>
+          <div className={styles.progressBarFill} style={{ width: `${(complete / total) * 100}%` }} />
         </div>
       </div>
 
       {/* Steps grouped by category */}
       {CATEGORIES.map(cat => (
-        <div key={cat} style={{ marginBottom: 'var(--s32)' }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-eyebrow)', marginBottom: 'var(--s16)' }}>{cat}</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s10)' }}>
+        <div key={cat} className={styles.categoryContainer}>
+          <p className={styles.categoryTitle}>{cat}</p>
+          <div className={styles.stepsList}>
             {STEPS.filter(s => s.category === cat).map(step => (
               <div key={step.id}
                 onClick={() => toggle(step.id)}
-                style={{ display: 'flex', gap: 'var(--s16)', padding: 'var(--s16) var(--s20)', background: done[step.id] ? 'rgba(34,197,94,0.05)' : 'var(--black-surface)', border: `1px solid ${done[step.id] ? 'rgba(34,197,94,0.2)' : 'var(--white-faint)'}`, borderRadius: 'var(--radius-soft)', cursor: 'pointer', transition: 'all 0.2s', alignItems: 'flex-start' }}>
+                className={`${styles.stepCard} ${done[step.id] ? styles.stepCardDone : ''}`}>
                 {/* Checkbox */}
-                <div style={{ width: 20, height: 20, borderRadius: 'var(--radius-sharp)', border: `2px solid ${done[step.id] ? 'var(--success)' : 'var(--white-subtle)'}`, background: done[step.id] ? 'var(--success)' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2, transition: 'all 0.2s' }}>
-                  {done[step.id] && <span style={{ color: 'var(--white)', fontSize: 11, fontWeight: 700 }}>✓</span>}
+                <div className={`${styles.checkbox} ${done[step.id] ? styles.checkboxDone : ''}`}>
+                  {done[step.id] && <span className={styles.checkIcon}>✓</span>}
                 </div>
-                <div style={{ flex: 1 }}>
-                  <p style={{ fontSize: 'var(--text-sm)', fontWeight: 500, color: done[step.id] ? 'var(--white-muted)' : 'var(--white)', marginBottom: 4, textDecoration: done[step.id] ? 'line-through' : 'none' }}>{step.label}</p>
-                  <p style={{ fontSize: 12, color: 'var(--white-subtle)', lineHeight: 1.5 }}>{step.desc}</p>
-                  {step.link && <a href={step.link} target={step.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{ fontSize: 12, color: 'var(--brand-blue)', marginTop: 4, display: 'inline-block' }}>Open →</a>}
+                <div className={styles.stepContent}>
+                  <p className={`${styles.stepLabel} ${done[step.id] ? styles.stepLabelDone : ''}`}>{step.label}</p>
+                  <p className={styles.stepDesc}>{step.desc}</p>
+                  {step.link && <a href={step.link} target={step.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" onClick={e => e.stopPropagation()} className={styles.stepLink}>Open →</a>}
                 </div>
               </div>
             ))}

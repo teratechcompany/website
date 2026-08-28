@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import styles from './LeaveActions.module.css'
+
 interface Props { id: string }
 export function LeaveActions({ id }: Props) {
   const [status, setStatus] = useState<'idle'|'loading'>('idle')
@@ -10,7 +12,7 @@ export function LeaveActions({ id }: Props) {
     window.location.reload()
   }
   return (
-    <div style={{ display:'flex', gap:'var(--s8)' }}>
+    <div className={styles.container}>
       <button className="btn btn-sm btn-blue"  disabled={status==='loading'} onClick={()=>act('approved')}>Approve</button>
       <button className="btn btn-sm btn-ghost" disabled={status==='loading'} onClick={()=>act('rejected')}>Reject</button>
     </div>
