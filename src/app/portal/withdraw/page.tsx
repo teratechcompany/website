@@ -3,6 +3,7 @@ import { useState }  from 'react'
 import { useRouter } from 'next/navigation'
 import { ROUTES }    from '@/constants/routes'
 import { Button }    from '@/components/ui/Button'
+import styles from './WithdrawPage.module.css'
 
 export default function WithdrawPage() {
   const router = useRouter()
@@ -21,13 +22,13 @@ export default function WithdrawPage() {
   }
 
   return (
-    <div style={{ maxWidth:480 }}>
-      <h1 style={{ fontSize:24, fontWeight:300, marginBottom:'var(--s16)' }}>Withdraw application</h1>
-      <p style={{ color:'var(--white-muted)', marginBottom:'var(--s32)', lineHeight:1.65 }}>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Withdraw application</h1>
+      <p className={styles.text}>
         Withdrawing is permanent. Your application will be closed and you will not be able to reopen it. You may apply again in a future cycle.
       </p>
-      {error && <p role="alert" style={{ color:'var(--danger)', fontSize:'var(--text-sm)', marginBottom:'var(--s16)' }}>{error}</p>}
-      <div style={{ display:'flex', gap:'var(--s12)' }}>
+      {error && <p role="alert" className={styles.error}>{error}</p>}
+      <div className={styles.actions}>
         <Button variant="ghost" onClick={()=>router.back()}>Cancel</Button>
         <Button variant="danger" loading={loading} onClick={withdraw}>Confirm withdrawal</Button>
       </div>

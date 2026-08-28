@@ -1,6 +1,7 @@
 import { requireRole }  from '@/lib/auth/guards'
 import { ROLES }        from '@/constants/roles'
 import Link             from 'next/link'
+import styles from './InternalLayout.module.css'
 
 const NAV_GROUPS = [
   { label:'Recruitment', links:[
@@ -29,28 +30,28 @@ const NAV_GROUPS = [
 export default async function InternalLayout({ children }: { children:React.ReactNode }) {
   await requireRole(ROLES.STAFF, ROLES.HR_ADMIN, ROLES.ADMIN)
   return (
-    <div style={{ minHeight:'100vh', display:'flex', background:'var(--black)' }}>
+    <div className={styles.layout}>
       {/* Sidebar */}
-      <aside style={{ width:224, borderRight:'1px solid var(--white-faint)', padding:'var(--s20)', flexShrink:0, paddingTop:'calc(var(--nav-height) + var(--s24))', display:'flex', flexDirection:'column', gap:'var(--s24)', position:'sticky', top:0, height:'100vh', overflowY:'auto' }}>
+      <aside className={styles.sidebar}>
         <div>
-          <p style={{ fontSize:10, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--white-subtle)', marginBottom:'var(--s8)' }}>Internal</p>
-          <Link href="/internal" style={{ fontSize:'var(--text-sm)', color:'var(--white-dim)', fontWeight:500 }}>Dashboard</Link>
+          <p className={styles.sectionTitle}>Internal</p>
+          <Link href="/internal" className={styles.dashboardLink}>Dashboard</Link>
         </div>
         {NAV_GROUPS.map(g => (
           <div key={g.label}>
-            <p style={{ fontSize:10, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'var(--white-subtle)', marginBottom:'var(--s10)' }}>{g.label}</p>
-            <div style={{ display:'flex', flexDirection:'column', gap:'var(--s4)' }}>
+            <p className={styles.groupTitle}>{g.label}</p>
+            <div className={styles.linkGroup}>
               {g.links.map(l => (
-                <Link key={l.href+l.label} href={l.href} className="nav-link" style={{ fontSize:'var(--text-sm)', padding:'var(--s6) var(--s8)', borderRadius:'var(--radius-sharp)' }}>{l.label}</Link>
+                <Link key={l.href+l.label} href={l.href} className={`nav-link ${styles.navLink}`}>{l.label}</Link>
               ))}
             </div>
           </div>
         ))}
-        <div style={{ marginTop:'auto', paddingTop:'var(--s16)', borderTop:'1px solid var(--white-faint)' }}>
-          <Link href="/admin" style={{ fontSize:12, color:'var(--white-subtle)' }}>→ Admin panel</Link>
+        <div className={styles.footer}>
+          <Link href="/admin" className={styles.adminLink}>→ Admin panel</Link>
         </div>
       </aside>
-      <main style={{ flex:1, padding:'var(--s40)', paddingTop:'calc(var(--nav-height) + var(--s40))', maxWidth:'calc(100vw - 224px)', overflowX:'auto' }}>
+      <main className={styles.main}>
         {children}
       </main>
     </div>

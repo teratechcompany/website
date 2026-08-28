@@ -96,11 +96,11 @@ Refactoring the authenticated sections of the app (the portal and internal dashb
   - [x] `OfferCard.tsx` ➡️ `OfferCard.module.css`
   - [x] `FileUploader.tsx` ➡️ `FileUploader.module.css`
 
-- [ ] **`src/components/admin/` & `internal/`**
-  - [ ] `UserRoleManager.tsx` ➡️ `UserRoleManager.module.css`
-  - [ ] `AlumniActions.tsx` ➡️ `AlumniActions.module.css`
-  - [ ] `AddPartnerForm.tsx` ➡️ `AddPartnerForm.module.css`
-  - [ ] `LeaveActions.tsx` ➡️ `LeaveActions.module.css`
+- [x] **`src/components/admin/` & `internal/`**
+  - [x] `UserRoleManager.tsx` ➡️ `UserRoleManager.module.css`
+  - [x] `AlumniActions.tsx` ➡️ `AlumniActions.module.css`
+  - [x] `AddPartnerForm.tsx` ➡️ `AddPartnerForm.module.css`
+  - [x] `LeaveActions.tsx` ➡️ `LeaveActions.module.css`
 
 > [!TIP]
 > **Phase 4 Testing & Commit Protocol**
@@ -112,29 +112,29 @@ Refactoring the authenticated sections of the app (the portal and internal dashb
 ### Phase 5: Page-Level Refactoring (`src/app/`)
 Finally, we refactor the actual Next.js page files that glue the components together, replacing any lingering inline styles on `<div>` wrappers and `<main>` tags.
 
-- [ ] **Public Pages**
-  - [ ] `src/app/not-found.tsx`
-  - [ ] `src/app/volunteer/page.tsx`
+- [x] **Public Pages**
+  - [x] `src/app/not-found.tsx`
+  - [x] `src/app/volunteer/page.tsx`
 
-- [ ] **Portal Routes (`src/app/portal/`)**
-  - [ ] `layout.tsx` (Portal Shell)
-  - [ ] `page.tsx` (Portal Dashboard)
-  - [ ] `offer/page.tsx`
-  - [ ] `onboarding/page.tsx`
-  - [ ] `status/page.tsx`
-  - [ ] `withdraw/page.tsx`
-  - [ ] `documents/page.tsx`
+- [x] **Portal Routes (`src/app/portal/`)**
+  - [x] `layout.tsx` (Portal Shell)
+  - [x] `page.tsx` (Portal Dashboard)
+  - [x] `offer/page.tsx`
+  - [x] `onboarding/page.tsx`
+  - [x] `status/page.tsx`
+  - [x] `withdraw/page.tsx`
+  - [x] `documents/page.tsx`
 
-- [ ] **Internal Routes (`src/app/internal/`)**
-  - [ ] `layout.tsx` (Admin Shell)
-  - [ ] `page.tsx`
-  - [ ] `projects/page.tsx`
-  - [ ] `interns/page.tsx`
-  - [ ] `reports/page.tsx`
-  - [ ] `finance/page.tsx` (and sub-pages)
-  - [ ] `docs/page.tsx`
-  - [ ] `comms/page.tsx`
-  - [ ] `ats/[id]/page.tsx`
+- [x] **Internal Routes (`src/app/internal/`)**
+  - [x] `layout.tsx` (Admin Shell)
+  - [x] `page.tsx`
+  - [x] `projects/page.tsx`
+  - [x] `interns/page.tsx`
+  - [x] `reports/page.tsx`
+  - [x] `finance/page.tsx` (and sub-pages)
+  - [x] `docs/page.tsx`
+  - [x] `comms/page.tsx`
+  - [x] `ats/[id]/page.tsx`
 
 > [!TIP]
 > **Final Phase 5 Testing & Commit Protocol**

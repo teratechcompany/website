@@ -1,0 +1,41 @@
+.title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.emptyCard {
+  text-align: center;
+  padding: var(--s48);
+}
+.emptyText {
+  color: var(--white-muted);
+}
+.atsLink {
+  margin-top: var(--s20);
+  display: inline-flex;
+}
+.tableCard {
+  padding: 0;
+  overflow: hidden;
+}
+.trackCell {
+  text-transform: capitalize;
+}
+.mutedCell {
+  color: var(--white-muted);
+}
+.dateCell {
+  font-size: 12px;
+  color: var(--white-subtle);
+}
+.statusBadge {
+  font-size: 10px;
+}
+.viewLink {
+  font-size: 12px;
+  color: var(--brand-blue);
+}

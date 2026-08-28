@@ -1,0 +1,21 @@
+.noAppContainer {
+  text-align: center;
+  padding-top: var(--s48);
+}
+.noAppTitle {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: var(--s16);
+}
+.container {
+  max-width: 560px;
+}
+.title {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}

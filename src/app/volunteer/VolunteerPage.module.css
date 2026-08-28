@@ -1,0 +1,39 @@
+.successContainer {
+  max-width: 560px;
+  text-align: center;
+}
+.successIcon {
+  font-size: 40px;
+  margin-bottom: var(--s16);
+  color: var(--brand-blue);
+}
+.successTitle {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: var(--s12);
+}
+.successMsg {
+  color: var(--white-muted);
+}
+.container {
+  max-width: 640px;
+}
+.title {
+  margin-bottom: var(--s8);
+}
+.subtitle {
+  color: var(--white-muted);
+  margin-bottom: var(--s40);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+.error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+}
+.submitBtn {
+  margin-top: var(--s8);
+}

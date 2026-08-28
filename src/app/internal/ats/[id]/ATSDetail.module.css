@@ -1,0 +1,92 @@
+.loading {
+  padding: var(--s40);
+  color: var(--white-muted);
+}
+.notFound {
+  padding: var(--s40);
+  color: var(--danger);
+}
+.container {
+  max-width: 800px;
+}
+.backLink {
+  font-size: var(--text-sm);
+  color: var(--white-muted);
+  margin-bottom: var(--s24);
+  display: inline-flex;
+  gap: var(--s6);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--s32);
+  flex-wrap: wrap;
+  gap: var(--s16);
+}
+.name {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: var(--s6);
+}
+.contact {
+  color: var(--white-muted);
+  font-size: var(--text-sm);
+}
+.statusBadge {
+  font-size: 13px;
+  padding: 6px 14px;
+}
+.statusCard {
+  margin-bottom: var(--s24);
+  padding: var(--s20);
+}
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-bottom: var(--s12);
+}
+.btnRow {
+  display: flex;
+  gap: var(--s8);
+  flex-wrap: wrap;
+}
+.statusBtn {
+  text-transform: capitalize;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s16);
+  margin-bottom: var(--s24);
+}
+.trackName {
+  font-size: var(--text-md);
+  font-weight: 300;
+  color: var(--white);
+  text-transform: capitalize;
+}
+.docsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+.docLink {
+  font-size: var(--text-sm);
+  color: var(--brand-blue);
+}
+.noDocs {
+  font-size: var(--text-sm);
+  color: var(--white-subtle);
+}
+.bgCard {
+  margin-bottom: var(--s12);
+}
+.bgText {
+  font-size: var(--text-sm);
+  color: var(--white-dim);
+  line-height: 1.7;
+}

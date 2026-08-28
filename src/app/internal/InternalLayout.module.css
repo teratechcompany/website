@@ -1,0 +1,66 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  background: var(--black);
+}
+.sidebar {
+  width: 224px;
+  border-right: 1px solid var(--white-faint);
+  padding: var(--s20);
+  flex-shrink: 0;
+  padding-top: calc(var(--nav-height) + var(--s24));
+  display: flex;
+  flex-direction: column;
+  gap: var(--s24);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white-subtle);
+  margin-bottom: var(--s8);
+}
+.dashboardLink {
+  font-size: var(--text-sm);
+  color: var(--white-dim);
+  font-weight: 500;
+}
+.groupTitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white-subtle);
+  margin-bottom: var(--s10);
+}
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+.navLink {
+  font-size: var(--text-sm);
+  padding: var(--s6) var(--s8);
+  border-radius: var(--radius-sharp);
+}
+.footer {
+  margin-top: auto;
+  padding-top: var(--s16);
+  border-top: 1px solid var(--white-faint);
+}
+.adminLink {
+  font-size: 12px;
+  color: var(--white-subtle);
+}
+.main {
+  flex: 1;
+  padding: var(--s40);
+  padding-top: calc(var(--nav-height) + var(--s40));
+  max-width: calc(100vw - 224px);
+  overflow-x: auto;
+}
